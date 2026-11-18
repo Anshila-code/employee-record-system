@@ -1,0 +1,195 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Search Employees | Employee Record System</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark">
+        <div class="container">
+
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <span class="brand-icon">ER</span>
+                Employee Records
+            </a>
+
+            <span class="navbar-text text-white">
+                Management Dashboard
+            </span>
+
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container search-page">
+
+        <!-- Page Heading -->
+        <div class="search-heading">
+
+            <div class="search-page-icon">
+                🔍
+            </div>
+
+            <h1>Employee Search</h1>
+
+            <p>Find employee records quickly and easily.</p>
+
+        </div>
+
+        <!-- Search Card -->
+        <div class="content-card">
+
+            <h4 class="search-title">Search Employee Records</h4>
+
+            <p class="search-description">
+                Search using employee ID, name or department.
+            </p>
+
+            <!-- Search Form -->
+            <form method="GET" action="{% url 'search_employee' %}">
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        name="q"
+                        value="{{ query }}"
+                        class="form-control"
+                        placeholder="Enter ID, name or department..."
+                    >
+
+                    <button type="submit" class="btn btn-search">
+                        Search
+                    </button>
+
+                </div>
+
+            </form>
+
+            <!-- Back Button -->
+            <div class="back-section">
+
+                <a href="{% url 'index' %}" class="btn btn-back">
+                    ← Back to Employee List
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Search Results -->
+        {% if query %}
+
+        <div class="results-heading">
+            <h4>Search Results</h4>
+
+            <p>
+                Showing results for:
+                <strong>"{{ query }}"</strong>
+            </p>
+        </div>
+
+        {% endif %}
+
+        <!-- Employee Table -->
+        {% if employees %}
+
+        <div class="content-card results-card">
+
+            <div class="table-responsive">
+
+                <table class="table employee-table">
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Employee Name</th>
+                            <th>Department</th>
+                            <th>Salary</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {% for employee in employees %}
+
+                        <tr>
+
+                            <td>
+                                <span class="employee-id">
+                                    #{{ employee.id }}
+                                </span>
+                            </td>
+
+                            <td class="employee-name">
+                                {{ employee.name }}
+                            </td>
+
+                            <td>
+                                <span class="department-badge">
+                                    {{ employee.department }}
+                                </span>
+                            </td>
+
+                            <td class="salary">
+                                ₹ {{ employee.salary }}
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        {% elif query %}
+
+        <div class="content-card no-results">
+
+            <div class="no-results-icon">!</div>
+
+            <h4>No Employees Found</h4>
+
+            <p>
+                We couldn't find any employee matching
+                "{{ query }}".
+            </p>
+
+            <a href="{% url 'index' %}" class="btn btn-add">
+                View All Employees
+            </a>
+
+        </div>
+
+        {% endif %}
+
+        <!-- Footer -->
+        <footer>
+            Employee Record System © 2026 | All Rights Reserved
+        </footer>
+
+    </div>
+
+</body>
+</html>

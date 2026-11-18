@@ -1,0 +1,548 @@
+
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f3f5f9;
+    color: #263445;
+}
+
+/* Navbar */
+.navbar {
+    background: #101b25;
+    padding: 16px 0;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+}
+
+.navbar-brand {
+    font-size: 21px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    background: #ff850f;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+/* Main Container */
+.main-container {
+    padding-top: 45px;
+    min-height: 85vh;
+}
+
+/* Page Heading */
+.page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.page-heading h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #101b25;
+}
+
+.page-heading p {
+    color: #788493;
+    margin-top: 8px;
+}
+
+/* Add Employee Button */
+.btn-add {
+    background: #ff850f;
+    color: white;
+    padding: 11px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-add:hover {
+    background: #e66f00;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Main Card */
+.content-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.card-header-custom h4 {
+    color: #101b25;
+    font-weight: 700;
+    font-size: 21px;
+}
+
+.card-header-custom p {
+    color: #87919e;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Search */
+.search-form {
+    margin: 25px 0;
+}
+
+.search-box {
+    display: flex;
+    gap: 12px;
+    max-width: 600px;
+}
+
+.search-box input {
+    height: 45px;
+    border: 1px solid #dce1e7;
+    border-radius: 8px;
+    padding: 10px 15px;
+}
+
+.search-box input:focus {
+    border-color: #ff850f;
+    box-shadow: 0 0 0 3px rgba(255,133,15,0.12);
+}
+
+.btn-search {
+    background: #101b25;
+    color: white;
+    padding: 0 25px;
+    border-radius: 8px;
+}
+
+.btn-search:hover {
+    background: #ff850f;
+    color: white;
+}
+
+/* Employee Table */
+.employee-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    vertical-align: middle;
+}
+
+.employee-table thead th {
+    background: #f2f4f7;
+    color: #536172;
+    font-size: 13px;
+    text-transform: uppercase;
+    padding: 16px;
+    border: none;
+}
+
+.employee-table tbody td {
+    padding: 17px 16px;
+    border-bottom: 1px solid #edf0f4;
+    font-size: 14px;
+}
+
+.employee-table tbody tr:hover {
+    background: #fffaf4;
+}
+
+.employee-id {
+    background: #fff0df;
+    color: #e8780b;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.employee-name {
+    font-weight: 600;
+    color: #263445;
+}
+
+.department-badge {
+    background: #edf2f8;
+    color: #40546a;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.salary {
+    font-weight: 600;
+    color: #198754;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-edit {
+    background: #e8f1ff;
+    color: #2365bd;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 7px 15px;
+}
+
+.btn-edit:hover {
+    background: #2365bd;
+    color: white;
+}
+
+.btn-delete {
+    background: #fff0f0;
+    color: #dc3545;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 7px 15px;
+}
+
+.btn-delete:hover {
+    background: #dc3545;
+    color: white;
+}
+
+/* Empty Message */
+.empty-message {
+    text-align: center;
+    padding: 35px !important;
+    color: #87919e;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    color: #8993a0;
+    font-size: 13px;
+    padding: 30px 0;
+    margin-top: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .main-container {
+        padding-top: 25px;
+    }
+
+    .page-heading {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .page-heading h1 {
+        font-size: 24px;
+    }
+
+    .content-card {
+        padding: 15px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box button {
+        height: 42px;
+    }
+
+    .navbar-text {
+        display: none;
+    }
+
+}
+
+
+
+/* ==========================
+   ADD EMPLOYEE PAGE
+========================== */
+
+.form-page {
+    padding-top: 55px;
+    min-height: 85vh;
+}
+
+.form-card {
+    background: white;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+}
+
+.form-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.form-icon {
+    width: 55px;
+    height: 55px;
+    background: #fff0df;
+    color: #ff850f;
+    font-size: 32px;
+    font-weight: 600;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+}
+
+.form-heading h2 {
+    color: #101b25;
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.form-heading p {
+    color: #87919e;
+    font-size: 14px;
+}
+
+.form-label {
+    color: #263445;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 9px;
+}
+
+.custom-input {
+    height: 48px;
+    border: 1px solid #dce1e7;
+    border-radius: 8px;
+    padding: 12px 15px;
+}
+
+.custom-input:focus {
+    border-color: #ff850f;
+    box-shadow: 0 0 0 3px rgba(255,133,15,0.12);
+}
+
+/* Form Buttons */
+
+.form-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.btn-submit {
+    flex: 1;
+    background: #ff850f;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.btn-submit:hover {
+    background: #e66f00;
+    color: white;
+}
+
+.btn-back {
+    background: #edf0f4;
+    color: #263445;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.btn-back:hover {
+    background: #dce1e7;
+    color: #101b25;
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 576px) {
+
+    .form-page {
+        padding: 30px 15px;
+    }
+
+    .form-card {
+        padding: 25px 20px;
+    }
+
+    .form-heading h2 {
+        font-size: 23px;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+
+    .btn-back {
+        text-align: center;
+    }
+
+}
+
+
+
+/* Edit Employee Icon */
+
+.edit-icon {
+    background: #e8f1ff;
+    color: #2365bd;
+    font-size: 30px;
+}
+
+
+
+/* ==========================
+   EMPLOYEE SEARCH PAGE
+========================== */
+
+.search-page {
+    padding-top: 45px;
+    min-height: 85vh;
+}
+
+/* Heading */
+
+.search-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.search-page-icon {
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.search-heading h1 {
+    color: #101b25;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.search-heading p {
+    color: #87919e;
+    margin-top: 8px;
+}
+
+/* Search Card */
+
+.search-title {
+    color: #101b25;
+    font-weight: 700;
+}
+
+.search-description {
+    color: #87919e;
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+.search-page .search-box {
+    max-width: 750px;
+}
+
+.search-page .search-box input {
+    height: 48px;
+}
+
+/* Back Button */
+
+.back-section {
+    margin-top: 22px;
+}
+
+.back-section .btn-back {
+    display: inline-block;
+}
+
+/* Results Heading */
+
+.results-heading {
+    margin: 35px 0 18px;
+}
+
+.results-heading h4 {
+    color: #101b25;
+    font-weight: 700;
+}
+
+.results-heading p {
+    color: #87919e;
+    margin-top: 7px;
+}
+
+/* Results Card */
+
+.results-card {
+    margin-top: 15px;
+}
+
+/* No Results */
+
+.no-results {
+    text-align: center;
+    padding: 45px 20px;
+    margin-top: 25px;
+}
+
+.no-results-icon {
+    width: 45px;
+    height: 45px;
+    background: #fff0df;
+    color: #ff850f;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 700;
+    margin: 0 auto 18px;
+}
+
+.no-results h4 {
+    color: #101b25;
+    font-weight: 700;
+}
+
+.no-results p {
+    color: #87919e;
+    margin: 12px 0 22px;
+}
+
+/* Responsive */
+
+@media (max-width: 576px) {
+
+    .search-page {
+        padding: 30px 15px;
+    }
+
+    .search-heading h1 {
+        font-size: 25px;
+    }
+
+    .search-page .search-box {
+        flex-direction: column;
+    }
+
+    .search-page .search-box button {
+        height: 43px;
+    }
+
+}
